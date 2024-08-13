@@ -1,11 +1,11 @@
-import { Body, Controller, Get } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 import { RunScriptService } from './run-script.service';
 
-@Controller('run-script')
+@Controller('/write-name')
 export class RunScriptController {
   constructor(private readonly runScriptService: RunScriptService) { }
 
-  @Get('move-and-click')
+  @Post()
   async moveAndClick(
     @Body() req: { name: string },
   ) {
