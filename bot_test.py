@@ -1,26 +1,76 @@
 import pyautogui
+##import pyscreeze
 import time
+import sys
 
-def move_and_click(start_pos, end_pos, duration=1):
-    """
-    Moves the mouse from start_pos to end_pos and performs a click.
-    
-    :param start_pos: tuple, the starting position (x, y)
-    :param end_pos: tuple, the ending position (x, y)
-    :param duration: float, time to move from start to end position
-    """
-    # Move the mouse to the start position
-    pyautogui.moveTo(start_pos[0], start_pos[1], duration=0.5)
-    time.sleep(0.5)  # Optional: wait for half a second
+if len(sys.argv) > 1:
+    word_to_write = sys.argv[1]
+else:
+    word_to_write = "SENAI"
 
-    # Move the mouse to the end position
-    pyautogui.moveTo(end_pos[0], end_pos[1], duration=duration)
-    time.sleep(0.5)  # Optional: wait for half a second
-
-    # Perform a click at the end position
-    pyautogui.click()
-
-# Example usage
 start_position = (100, 100)  # Starting position (x, y)
-end_position = (500, 500)    # Ending position (x, y)
-move_and_click(start_position, end_position, duration=2)  # Move in 2 seconds and click
+
+screenSize = pyautogui.size()
+# print(screenSize)
+sleepTime = 0.00
+
+# print(pyautogui.position())
+
+# Move the mouse to the start position
+pyautogui.moveTo(screenSize.width / 2, screenSize.height / 2) #, duration=0.05)
+time.sleep(sleepTime)  # Optional: wait for half a second
+pyautogui.click()
+
+# Centraliza a área de impressão
+pyautogui.keyDown('f3')
+time.sleep(sleepTime)
+# Seleciona tudo o que está na área de impressão
+pyautogui.hotkey('ctrl', 'a')
+time.sleep(sleepTime)
+# Apaga o que tem na tela
+pyautogui.keyDown('delete')
+time.sleep(sleepTime)
+# Seleciona a forma TEXTO
+pyautogui.hotkey('ctrl', '6')
+time.sleep(sleepTime)
+# Posiciona o cursor no meio da tela
+pyautogui.moveTo(screenSize.width / 2, screenSize.height / 2) #, duration=0.05)
+# gradeX, gradeY = pyautogui.locateCenterOnScreen('grade.png', confidence=0.5)
+# print(gradeX, gradeY)
+# pyautogui.moveTo(gradeX / 2, gradeY / 2) #, duration=0.05)
+time.sleep(sleepTime)
+# Executa o click para adicionar a forma TEXTO à área de impressão
+pyautogui.click()
+time.sleep(sleepTime)
+# Executa o click para posicionar o cursor na caixa de texto
+pyautogui.click()
+time.sleep(sleepTime)
+# Seleciona tudo o que estiver na caixa de texto com finalidade de remoção
+pyautogui.hotkey('ctrl', 'a')
+time.sleep(sleepTime)
+# Escreve o novo texto
+pyautogui.typewrite(word_to_write)
+time.sleep(sleepTime)
+# Executa o atalho "TAB" para seguir para o botão de "OK"
+pyautogui.keyDown('tab')
+time.sleep(sleepTime)
+# Executa a função de "ENTER" para fechar a caxia de texto
+pyautogui.keyDown('enter')
+time.sleep(sleepTime)
+# Aciona o atalho para o menu "DRAW"
+pyautogui.hotkey('alt', 'd')
+time.sleep(sleepTime)
+# Seleciona a opção "Data Center", para centralizar o texto
+pyautogui.keyDown('d')
+time.sleep(sleepTime)
+#pyautogui.keyDown('enter')
+# time.sleep(0.5)
+# pyautogui.moveTo(1681, 685) #, duration=0.5)
+# Busca na tela a semelhança com a imagem, que neste caso é o botão de "START"
+x, y = pyautogui.locateCenterOnScreen('start.png', confidence=0.5)
+time.sleep(sleepTime)
+# Efetua o click para iniciar o processo de gravação
+pyautogui.click(x, y)
+time.sleep(sleepTime)
+# pyautogui.click()
+# time.sleep(sleepTime)  # Optional: wait for half a second

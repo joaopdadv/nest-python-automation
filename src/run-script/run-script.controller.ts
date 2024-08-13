@@ -1,4 +1,4 @@
-import { Controller, Get, Query } from '@nestjs/common';
+import { Body, Controller, Get } from '@nestjs/common';
 import { RunScriptService } from './run-script.service';
 
 @Controller('run-script')
@@ -7,14 +7,10 @@ export class RunScriptController {
 
   @Get('move-and-click')
   async moveAndClick(
-    @Query('startX') startX: number,
-    @Query('startY') startY: number,
-    @Query('endX') endX: number,
-    @Query('endY') endY: number,
-    @Query('duration') duration: number
+    @Body() req: { name: string },
   ) {
     try {
-      const result = await this.runScriptService.moveAndClick(startX, startY, endX, endY, duration);
+      const result = await this.runScriptService.moveAndClick(req.name);
       return { result };
     } catch (error) {
       return { error: error.message };
