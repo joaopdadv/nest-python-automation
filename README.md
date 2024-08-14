@@ -25,16 +25,32 @@ Antes de iniciar o servidor, é necessário configurar e ativar o ambiente virtu
 
 #### Criar um Novo Ambiente Virtual
 
-Caso você queira criar um novo ambiente virtual, utilize os seguintes comandos:
+Para criar um novo ambiente virtual, utilize os seguintes comandos:
+
+**No macOS/Linux:**
 
 ```bash
 python3 -m venv mercoparenv
 ```
 
+**No Windows:**
+
+```bash
+python -m venv mercoparenv
+```
+
 Em seguida, ative o ambiente:
+
+**No macOS/Linux:**
 
 ```bash
 source mercoparenv/bin/activate
+```
+
+**No Windows:**
+
+```bash
+mercoparenv\Scripts\activate
 ```
 
 #### Instalar Dependências Python
@@ -47,10 +63,18 @@ pip install -r requirements.txt
 
 #### Usar o Ambiente Virtual Existente
 
-Se preferir usar o ambiente virtual que já está configurado no projeto, ative-o com o comando:
+Se preferir usar o ambiente virtual que já está configurado no projeto, ative-o com o comando correspondente:
+
+**No macOS/Linux:**
 
 ```bash
 source mercoparenv/bin/activate
+```
+
+**No Windows:**
+
+```bash
+mercoparenv\Scripts\activate
 ```
 
 ### 3. Rodar o Projeto
