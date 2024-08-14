@@ -12,15 +12,16 @@ export class RunScriptService {
                 return; // Exit early to prevent unnecessary execution
             }
 
-            PythonShell.run(scriptPath, { args }).then(
-                () => {
-                    resolve('Success');
-                }
-            ).catch(
-                (e) => {
+            PythonShell.run(scriptPath, { args, pythonOptions: ['-u'] }) // Use '-u' for unbuffered output
+                .then((results) => {
+                    // Concatenate the output from all lines of stdout
+                    const output = results.join('\n');
+                    console.log(results);
+                    resolve(output);
+                })
+                .catch((e) => {
                     reject(e);
-                }
-            );
+                });
         });
     }
 
