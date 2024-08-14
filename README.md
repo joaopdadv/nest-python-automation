@@ -1,73 +1,80 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Projeto NestJS
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Este é o projeto [Nome do Projeto]. Siga as instruções abaixo para configurar e rodar o projeto localmente.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Requisitos
 
-## Description
+- Node.js instalado
+- npm (ou yarn)
+- Python instalado
+- Ambiente virtual Python (`venv`) configurado
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Passo a Passo
 
-## Installation
+### 1. Instalar Dependências
+
+Após clonar o repositório, navegue até a pasta do projeto e execute o comando abaixo para instalar as dependências necessárias:
 
 ```bash
-$ npm install
+npm install
 ```
 
-## Running the app
+### 2. Configurar Ambiente Virtual Python
+
+Antes de iniciar o servidor, é necessário configurar e ativar o ambiente virtual Python. Você pode criar um novo ambiente ou usar o que já está configurado no projeto.
+
+#### Criar um Novo Ambiente Virtual
+
+Caso você queira criar um novo ambiente virtual, utilize os seguintes comandos:
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+python3 -m venv mercoparenv
 ```
 
-## Test
+Em seguida, ative o ambiente:
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+source mercoparenv/bin/activate
 ```
 
-## Support
+#### Instalar Dependências Python
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Com o ambiente virtual ativo, instale as dependências necessárias do projeto usando o arquivo `requirements.txt`:
 
-## Stay in touch
+```bash
+pip install -r requirements.txt
+```
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+#### Usar o Ambiente Virtual Existente
 
-## License
+Se preferir usar o ambiente virtual que já está configurado no projeto, ative-o com o comando:
 
-Nest is [MIT licensed](LICENSE).
+```bash
+source mercoparenv/bin/activate
+```
+
+### 3. Rodar o Projeto
+
+Com as dependências instaladas e o ambiente virtual ativo, você pode iniciar o servidor NestJS com o comando:
+
+```bash
+nest start
+```
+
+### 4. Acessar o Projeto
+
+Após o servidor iniciar, o projeto estará rodando e acessível via [http://localhost:3000](http://localhost:3000) (ou outra porta configurada).
+
+### 5. Considerações Finais
+
+Certifique-se de que todas as dependências estejam instaladas corretamente e o ambiente Python esteja ativo antes de rodar o servidor. Em caso de problemas, verifique as configurações do ambiente virtual e se todas as dependências foram instaladas corretamente.
+
+### 6. Problemas Comuns
+
+Se encontrar problemas ao rodar o projeto, considere verificar os seguintes pontos:
+
+- **Dependências:** Certifique-se de que todas as dependências foram instaladas corretamente com `npm install`.
+- **Ambiente Virtual:** Verifique se o ambiente virtual Python está ativado. Use o comando `source mercoparenv/bin/activate` para ativá-lo.
+- **Erros de Inicialização:** Verifique os logs de erro ao iniciar o servidor com `nest start` e resolva qualquer problema indicado.
+
+Se o problema persistir, consulte a documentação do NestJS e do ambiente Python ou procure ajuda em fóruns especializados.
